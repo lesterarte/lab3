@@ -4,14 +4,23 @@
 using std::endl; 
 using std::cin; 
 using std::cout; 
-
+//funciones ejercicio 1
 void scores(int [],int); 
 void llenar(int [],const int);
 void imprimir(int [],const int);  
 void agregar(int [],const int, int); 
 
+//funciones ejercicio 2
+
+ 
+
+
 int main(int argc, char*argv[]){
+	const int columnas=3; 
+	const int filas =4; 
 	const int tamanio=10; 
+	int matriz[filas][columnas]; 
+	int jugador[2][3]; 
 	int score[tamanio];
 	int think;  
 	srand(time(NULL)); 
@@ -61,8 +70,68 @@ int main(int argc, char*argv[]){
 	}
 
 	if(ejercicio==2){
+
+		//llenar arreglo de columnas
+		
+		for(int i=0;i<filas;i++){
+			matriz[i][0]=rand()%115+85;
+		 }
+		for(int i=0; i<filas;i++){
+		        matriz[i][1]= rand()%75+50;
+		}
+		for(int i=0; i<filas;i++){
+			matriz[i][2]=rand()%200+150;
+	        }
+
+		//Eleccion de jugador 1
+		cout<<"Jugador 1: "<<endl; 
+		for(int i=0; i<columnas;i++){
+			jugador[0][i]=matriz[rand()%filas][i];
 			
-	}
+		}
+		cout<<"ataque: "<<jugador[0][0]<<"  Defensa: "<<jugador[0][1]
+		    <<"  Velocidad: "<<jugador[0][2]<<endl;  
+
+		//Eleccion de jugador 2 
+
+		cout<<"Jugador 2: "<<endl;
+		for(int i=0; i<columnas;i++){
+			 jugador[1][i]=matriz[rand()%filas][i];
+	        }
+		cout<<"ataque: "<<jugador[1][0]<<"  Defensa: "<<jugador[1][1]
+		    <<"  Velocidad: "<<jugador[1][2]<<endl;
+
+		//resta de defensa
+		cout<<"Los puntos del Jugador 1: "<<jugador[0][0]-jugador[1][1]<<endl; 
+		cout<<"Los puntos del jugador 2: "<<jugador[1][0]-jugador[0][1]<<endl; 
+
+		if((jugador[0][0]-jugador[1][1])>(jugador[1][0]-jugador[0][1])){
+			cout<<"El ganador es el jugado 1"<<endl
+			    <<"Gano por diferencia de Ataque no por velocidad"<<endl
+			    <<"La diferencia de puntos es: "<<(jugador[0][0]-jugador[1][1])-(jugador[1][0]-jugador[0][1])
+			    <<endl; 	  
+		}
+		else{
+		cout<<"El jugador ganador es el jugador 2"<<endl 	
+			    <<"Gano por diferencia de ataque no por velocidad"<<endl
+			    <<"La diferencia de putnos es: "<<(jugador[1][0]-jugador[0][1])-(jugador[0][0]-jugador[1][1])
+			    <<endl; 
+			 
+		}
+		
+		if((jugador[0][0]-jugador[1][1])==(jugador[1][0]-jugador[0][1])){
+			cout<<"EMPATE!!!!!"<<endl; 
+			if(jugador[0][2]>jugador[1][2]){
+				cout<<"El jugador 1. ha ganado por diferencia de velocidad"<<endl; 		
+			}
+			else
+			{
+				cout<<"El jugador 2. ha ganado por diferencia de velocidad"<<endl;
+			}
+		}
+					 
+			
+	} // fin segundo if de la eleccion de los ejercicios
 
 	return 0; 	
 
@@ -104,3 +173,5 @@ void agregar(int score[],const int a,int contador){
 		}
 	}
 }
+
+
