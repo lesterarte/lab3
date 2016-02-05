@@ -4,6 +4,7 @@
 using std::endl; 
 using std::cin; 
 using std::cout; 
+
 //funciones ejercicio 1
 void scores(int [],int); 
 void llenar(int [],const int);
@@ -11,10 +12,6 @@ void imprimir(int [],const int);
 void agregar(int [],const int, int); 
 
 //funciones ejercicio 2
-
- 
-
-
 int main(int argc, char*argv[]){
 	const int columnas=3; 
 	const int filas =4; 
@@ -119,6 +116,7 @@ int main(int argc, char*argv[]){
 			 
 		}
 		
+		//Si hay empate desempatar por velocidad
 		if((jugador[0][0]-jugador[1][1])==(jugador[1][0]-jugador[0][1])){
 			cout<<"EMPATE!!!!!"<<endl; 
 			if(jugador[0][2]>jugador[1][2]){
