@@ -1,9 +1,11 @@
 #include<iostream> 
 #include<cstdlib>
+#include<iomanip>
 
 using std::endl; 
 using std::cin; 
 using std::cout; 
+using std::setw; 
 
 //funciones ejercicio 1
 void scores(int [],int); 
@@ -79,6 +81,19 @@ int main(int argc, char*argv[]){
 		for(int i=0; i<filas;i++){
 			matriz[i][2]=rand()%200+150;
 	        }
+
+		cout<<endl<<"----------------Tabla de Poderes----------------"<<endl;  
+		//imprimir tabla
+		
+		for(int i=0; i<filas; i++){
+			for(int j=0; j<columnas; j++){
+				cout<<setw(5)<<matriz[i][j];  	
+			}
+
+			cout<<endl;  
+
+		}
+		cout<<endl; 
 
 		//Eleccion de jugador 1
 		cout<<"Jugador 1: "<<endl; 
